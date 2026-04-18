@@ -9,59 +9,64 @@
 <link rel="apple-touch-icon" href="icon.png">
 <title>時間割</title>
 <style>
-:root{
-  --bg:#0f0f14;--surface:#1a1a24;--surface2:#22222f;--border:#2e2e3f;
-  --accent:#7c6af7;--accent2:#5eead4;--text:#e8e8f0;--muted:#8888a0;
-  --danger:#f87171;--success:#4ade80;--warning:#fbbf24;--radius:12px;
-}
-/* Discord Dark（デフォルト） */
+:root{--bg:#313338;--surface:#2b2d31;--surface2:#1e1f22;--border:#1e1f22;--accent:#5865f2;--accent2:#57f287;--text:#dbdee1;--muted:#949ba4;--danger:#f87171;--success:#4ade80;--warning:#fbbf24;--radius:12px}
 .theme-midnight{--bg:#313338;--surface:#2b2d31;--surface2:#1e1f22;--border:#1e1f22;--accent:#5865f2;--accent2:#57f287;--text:#dbdee1;--muted:#949ba4}
-/* Discord Darker */
 .theme-ocean{--bg:#1e1f22;--surface:#2b2d31;--surface2:#313338;--border:#111214;--accent:#5865f2;--accent2:#00b0f4;--text:#dbdee1;--muted:#80848e}
-/* Discord Light */
 .theme-forest{--bg:#f2f3f5;--surface:#fff;--surface2:#e3e5e8;--border:#c4c9d0;--accent:#5865f2;--accent2:#1a8a4a;--text:#2e3338;--muted:#696f7a}
-/* Discord Midnight */
 .theme-rose{--bg:#0d0d0f;--surface:#1a1a1e;--surface2:#111114;--border:#2a2a2f;--accent:#5865f2;--accent2:#eb459e;--text:#dbdee1;--muted:#7a7e86}
-/* Discord Server カスタム（Blurple強調） */
 .theme-sand{--bg:#23272a;--surface:#2c2f33;--surface2:#36393f;--border:#202225;--accent:#7289da;--accent2:#faa61a;--text:#ffffff;--muted:#99aab5}
-/* Discord Canary（明るいブルーパープル） */
 .theme-slate{--bg:#36393f;--surface:#40444b;--surface2:#2f3136;--border:#202225;--accent:#7289da;--accent2:#43b581;--text:#dcddde;--muted:#8e9297}
+.theme-white{--bg:#ffffff;--surface:#f7f8fa;--surface2:#eef0f3;--border:#dde1e7;--accent:#5865f2;--accent2:#2ecc71;--text:#1a1c1e;--muted:#7a8290}
+.theme-cream{--bg:#fdfaf5;--surface:#fff8ee;--surface2:#f3ecdf;--border:#e6ddd0;--accent:#c07c3a;--accent2:#7ab648;--text:#2d2318;--muted:#9a8878}
+.theme-coolwhite{--bg:#f5f7fb;--surface:#ffffff;--surface2:#eaf0fa;--border:#d0d9ea;--accent:#2563eb;--accent2:#0ea5e9;--text:#0f1c36;--muted:#6b7a99}
+.theme-minimal{--bg:#fafafa;--surface:#ffffff;--surface2:#f0f0f0;--border:#e0e0e0;--accent:#222222;--accent2:#555555;--text:#111111;--muted:#888888}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;overflow:hidden}
 body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica Neue',sans-serif;display:flex;flex-direction:column}
-.header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;position:relative;z-index:10}
+/* header */
+.header{background:var(--surface);border-bottom:1px solid var(--border);padding:13px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;z-index:10}
 .header h1{font-size:17px;font-weight:700;color:var(--accent)}
-.icon-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text);height:32px;padding:0 10px;border-radius:8px;display:flex;align-items:center;cursor:pointer;font-size:12px;font-weight:600;white-space:nowrap}
+.icon-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text);height:34px;padding:0 12px;border-radius:8px;display:flex;align-items:center;cursor:pointer;font-size:12px;font-weight:600;white-space:nowrap}
+/* nav */
 .nav{display:flex;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0}
-.nav-tab{flex:1;padding:9px 4px;text-align:center;font-size:12px;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s}
+.nav-tab{flex:1;padding:11px 4px;text-align:center;font-size:12px;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s}
 .nav-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+/* views */
 .view{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
 /* banners */
-.banners{padding:0 10px;display:flex;flex-wrap:wrap;gap:4px;padding-top:6px;padding-bottom:2px}
+.banners{padding:6px 10px 4px;display:flex;flex-wrap:wrap;gap:4px}
 .banner-chip{font-size:11px;padding:2px 8px;border-radius:20px;font-weight:600}
-.chip-q{background:rgba(124,106,247,.18);color:var(--accent)}
-.chip-sem{background:rgba(94,234,212,.18);color:var(--accent2)}
+.chip-q{background:rgba(88,101,242,.18);color:var(--accent)}
+.chip-sem{background:rgba(87,242,135,.15);color:var(--accent2)}
 .chip-hol{background:rgba(251,191,36,.18);color:var(--warning)}
 /* week nav */
-.week-nav{display:flex;align-items:center;justify-content:space-between;padding:4px 10px;flex-shrink:0}
-.week-nav span{font-size:13px;color:var(--muted)}
-.week-nav button{background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;padding:2px 8px;line-height:1}
-.today-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text);font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px;cursor:pointer}
+.week-nav{display:flex;align-items:center;justify-content:space-between;padding:6px 8px 4px;flex-shrink:0}
+.week-nav span{font-size:13px;color:var(--muted);font-weight:500}
+.wnav-btn{background:var(--surface);border:1px solid var(--border);color:var(--text);width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:24px;font-weight:300;transition:background .15s;flex-shrink:0}
+.wnav-btn:active{background:var(--surface2)}
 /* calendar */
-.cal-wrap{overflow-x:auto;padding:0 8px 8px}
-.cal{display:grid;grid-template-columns:50px repeat(6,1fr);gap:2px;min-width:360px}
+.cal-wrap{padding:0 8px 8px;overflow-x:auto}
+.cal{display:grid;grid-template-columns:46px repeat(6,1fr);gap:2px;min-width:340px}
 .cal-head{text-align:center;font-size:10px;font-weight:700;color:var(--muted);padding:4px 1px;white-space:pre;line-height:1.4}
 .cal-head.today-h{color:var(--accent)}
 .cal-head.hol-h{color:var(--warning)}
-.time-col{font-size:9px;color:var(--muted);text-align:right;padding-right:5px;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-start;padding-top:3px;gap:0}
-.tl-p{font-weight:700;font-size:10px;color:var(--text);line-height:1.2}
-.tl-t{font-size:8px;color:var(--muted);line-height:1.2;white-space:pre}
-.cal-cell{background:var(--surface);border:1px solid var(--border);border-radius:5px;min-height:56px;position:relative;cursor:pointer;transition:background .15s;overflow:hidden}
+.time-col{font-size:9px;color:var(--muted);text-align:right;padding-right:5px;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-start;padding-top:4px}
+.tl-p{font-weight:700;font-size:10px;color:var(--text);line-height:1.3}
+.tl-t{font-size:8px;color:var(--muted);line-height:1.3;white-space:pre}
+.cal-cell{background:var(--surface);border:1px solid var(--border);border-radius:5px;position:relative;cursor:pointer;transition:background .15s;overflow:hidden;display:flex;flex-direction:column}
 .cal-cell:active{background:var(--surface2)}
 .cal-cell.hol-cell{background:rgba(251,191,36,.04);border-color:rgba(251,191,36,.15)}
+/* empty cell plus */
+.cell-plus{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--border);transition:color .15s;font-weight:300;line-height:1}
+.cal-cell:active .cell-plus{color:var(--muted)}
+/* memo cell */
+.memo-block{position:absolute;inset:2px;border-radius:4px;padding:3px 5px;background:rgba(251,191,36,.1);border-left:3px solid var(--warning);display:flex;flex-direction:column;overflow:hidden}
+.memo-text{font-size:9px;color:var(--warning);line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+/* class block */
 .class-block{position:absolute;inset:2px;border-radius:4px;padding:3px 4px;display:flex;flex-direction:column;overflow:hidden}
-.cb-name{font-size:10px;font-weight:700;line-height:1.25;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.cb-room{font-size:9px;opacity:.8;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-top:auto;padding-top:1px;flex-shrink:0}
+.cb-name{font-size:10px;font-weight:700;line-height:1.25;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;flex-shrink:0}
+.cb-spacer{flex:1;min-height:0}
+.cb-room{font-size:9px;opacity:.8;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;flex-shrink:0}
 .cb-badge{position:absolute;top:2px;right:2px;width:6px;height:6px;border-radius:50%;background:var(--warning)}
 .cb-single{position:absolute;top:2px;right:10px;width:6px;height:6px;border-radius:50%;background:var(--accent2)}
 .ev-dot{position:absolute;bottom:2px;left:2px;right:2px;font-size:8px;color:var(--accent2);overflow:hidden;white-space:nowrap;text-overflow:ellipsis;line-height:1}
@@ -100,17 +105,19 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
 .s-item-name{font-weight:600;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .s-item-sub{font-size:10px;color:var(--muted);margin-top:1px}
 .s-badge{font-size:10px;padding:2px 7px;border-radius:20px;white-space:nowrap;margin-left:6px;flex-shrink:0}
-.bq{background:rgba(124,106,247,.2);color:var(--accent)}
-.bs{background:rgba(94,234,212,.2);color:var(--accent2)}
+.bq{background:rgba(88,101,242,.2);color:var(--accent)}
+.bs{background:rgba(87,242,135,.15);color:var(--accent2)}
 .bh{background:rgba(251,191,36,.2);color:var(--warning)}
 .be{background:rgba(74,222,128,.2);color:var(--success)}
-.theme-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:12px}
-.theme-swatch{height:36px;border-radius:8px;cursor:pointer;border:3px solid transparent;transition:border-color .15s;display:flex;align-items:center;justify-content:center;font-size:16px}
+/* theme grid */
+.theme-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:14px}
+.theme-swatch{height:38px;border-radius:10px;cursor:pointer;border:2px solid transparent;transition:border-color .15s}
 .theme-swatch.sel{border-color:var(--text)}
-/* overlay / modal */
+.theme-label{font-size:10px;color:var(--muted);text-align:center;margin-top:4px}
+/* overlays */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;display:flex;align-items:flex-end;justify-content:center}
 .overlay.center{align-items:center}
-.modal{background:var(--surface);border-radius:18px 18px 0 0;width:100%;max-width:600px;max-height:88vh;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:18px 14px 36px}
+.modal{background:var(--surface);border-radius:18px 18px 0 0;width:100%;max-width:600px;max-height:88vh;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:18px 14px 40px}
 .overlay.center .modal{border-radius:16px;margin:12px;max-height:86vh}
 .modal-drag{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 14px}
 .modal h2{font-size:17px;font-weight:700;margin-bottom:14px}
@@ -142,7 +149,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
 .add-sm{background:var(--surface2);border:1px solid var(--border);color:var(--accent);border-radius:6px;padding:3px 9px;font-size:12px;cursor:pointer}
 .empty{text-align:center;padding:36px 20px;color:var(--muted)}
 .empty p{font-size:13px;margin-top:6px}
-.fab{position:fixed;bottom:20px;right:16px;width:50px;height:50px;border-radius:50%;background:var(--accent);color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.3);cursor:pointer;z-index:150;border:none}
+.fab{position:fixed;bottom:22px;right:16px;width:50px;height:50px;border-radius:50%;background:var(--accent);color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.3);cursor:pointer;z-index:150;border:none}
 .color-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
 .cswatch{width:26px;height:26px;border-radius:50%;cursor:pointer;border:3px solid transparent}
 .cswatch.sel{border-color:var(--text)}
@@ -163,13 +170,13 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
 </div>
 
 <div id="view-cal" class="view" style="display:flex;flex-direction:column;overflow:hidden">
-  <div id="banners" class="banners"></div>
+  <div id="banners" class="banners" style="display:none"></div>
   <div class="week-nav">
-    <button onclick="changeWeek(-1)">‹</button>
+    <button class="wnav-btn" onclick="changeWeek(-1)">‹</button>
     <span id="week-label"></span>
-    <button onclick="changeWeek(1)">›</button>
+    <button class="wnav-btn" onclick="changeWeek(1)">›</button>
   </div>
-  <div class="cal-wrap" style="flex:1;overflow-y:auto">
+  <div class="cal-wrap" style="flex:1;overflow-y:hidden" id="cal-wrap">
     <div class="cal" id="cal-grid"></div>
   </div>
 </div>
@@ -201,11 +208,10 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
 
 <button class="fab" id="fab-btn" onclick="openAddClass()">+</button>
 
-<!-- Detail modal -->
+<!-- Modals -->
 <div class="overlay" id="detail-overlay" style="display:none" onclick="closeOverlay('detail-overlay',event)">
   <div class="modal"><div class="modal-drag"></div><div id="detail-content"></div></div>
 </div>
-<!-- Class form -->
 <div class="overlay center" id="class-overlay" style="display:none" onclick="closeOverlay('class-overlay',event)">
   <div class="modal">
     <div class="modal-drag"></div>
@@ -213,7 +219,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
     <div class="fg"><label>クォーター</label><select id="f-quarter"></select></div>
     <div class="fg"><label>時間割名 *</label><input id="f-name" type="text" placeholder="例: 線形代数学"></div>
     <div class="fg"><label>時間割番号</label><input id="f-code" type="text" placeholder="例: MA201"></div>
-    <div class="fg"><label>単発授業（特定の日のみ）</label>
+    <div class="fg"><label>単発授業</label>
       <select id="f-single" onchange="toggleSingleFields()">
         <option value="0">通常（毎週繰り返し）</option>
         <option value="1">単発（特定の1日のみ）</option>
@@ -223,10 +229,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
     <div id="regular-wrap">
       <div class="frow">
         <div class="fg"><label>曜日 *</label>
-          <select id="f-day">
-            <option value="0">月</option><option value="1">火</option><option value="2">水</option>
-            <option value="3">木</option><option value="4">金</option><option value="5">土</option>
-          </select>
+          <select id="f-day"><option value="0">月</option><option value="1">火</option><option value="2">水</option><option value="3">木</option><option value="4">金</option><option value="5">土</option></select>
         </div>
         <div class="fg"><label>時限 *</label>
           <select id="f-period">
@@ -252,16 +255,13 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
     </div>
   </div>
 </div>
-<!-- Sched change -->
 <div class="overlay center" id="sched-overlay" style="display:none" onclick="closeOverlay('sched-overlay',event)">
   <div class="modal">
     <div class="modal-drag"></div>
     <h2 id="sched-title">スケジュール変更</h2>
     <p style="font-size:12px;color:var(--muted);margin-bottom:12px">この週だけ適用されます。</p>
     <div class="fg"><label>変更の種類</label>
-      <select id="s-type" onchange="toggleSchedFields()">
-        <option value="cancel">休講</option><option value="move">別の日・時限に移動</option>
-      </select>
+      <select id="s-type" onchange="toggleSchedFields()"><option value="cancel">休講</option><option value="move">別の日・時限に移動</option></select>
     </div>
     <div id="s-move" style="display:none">
       <div class="frow">
@@ -280,7 +280,6 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
     </div>
   </div>
 </div>
-<!-- Assign form -->
 <div class="overlay center" id="assign-overlay" style="display:none" onclick="closeOverlay('assign-overlay',event)">
   <div class="modal">
     <div class="modal-drag"></div>
@@ -298,7 +297,20 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
     </div>
   </div>
 </div>
-<!-- Period form -->
+<div class="overlay center" id="memo-overlay" style="display:none" onclick="closeOverlay('memo-overlay',event)">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <h2 id="memo-title">メモ</h2>
+    <div class="fg"><label>メモ内容</label><textarea id="memo-text" placeholder="自習・バイトなど自由にメモ" style="min-height:100px"></textarea></div>
+    <div class="btn-row">
+      <button class="btn btn-s" onclick="closeOverlay('memo-overlay')">キャンセル</button>
+      <button class="btn btn-p" onclick="saveMemo()">保存</button>
+    </div>
+    <div id="del-memo-wrap" style="margin-top:8px;display:none">
+      <button class="btn btn-d" id="del-memo-btn">メモを削除</button>
+    </div>
+  </div>
+</div>
 <div class="overlay center" id="period-overlay" style="display:none" onclick="closeOverlay('period-overlay',event)">
   <div class="modal">
     <div class="modal-drag"></div>
@@ -313,12 +325,9 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
       <button class="btn btn-s" onclick="closeOverlay('period-overlay')">キャンセル</button>
       <button class="btn btn-p" onclick="savePeriod()">保存</button>
     </div>
-    <div id="del-period-wrap" style="margin-top:8px;display:none">
-      <button class="btn btn-d" id="del-period-btn">削除</button>
-    </div>
+    <div id="del-period-wrap" style="margin-top:8px;display:none"><button class="btn btn-d" id="del-period-btn">削除</button></div>
   </div>
 </div>
-<!-- Quarter form -->
 <div class="overlay center" id="quarter-overlay" style="display:none" onclick="closeOverlay('quarter-overlay',event)">
   <div class="modal">
     <div class="modal-drag"></div>
@@ -332,12 +341,9 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
       <button class="btn btn-s" onclick="closeOverlay('quarter-overlay')">キャンセル</button>
       <button class="btn btn-p" onclick="saveQuarter()">保存</button>
     </div>
-    <div id="del-quarter-wrap" style="margin-top:8px;display:none">
-      <button class="btn btn-d" id="del-quarter-btn">削除</button>
-    </div>
+    <div id="del-quarter-wrap" style="margin-top:8px;display:none"><button class="btn btn-d" id="del-quarter-btn">削除</button></div>
   </div>
 </div>
-<!-- Event form -->
 <div class="overlay center" id="event-overlay" style="display:none" onclick="closeOverlay('event-overlay',event)">
   <div class="modal">
     <div class="modal-drag"></div>
@@ -352,12 +358,9 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
       <button class="btn btn-s" onclick="closeOverlay('event-overlay')">キャンセル</button>
       <button class="btn btn-p" onclick="saveEvent()">保存</button>
     </div>
-    <div id="del-event-wrap" style="margin-top:8px;display:none">
-      <button class="btn btn-d" id="del-event-btn">削除</button>
-    </div>
+    <div id="del-event-wrap" style="margin-top:8px;display:none"><button class="btn btn-d" id="del-event-btn">削除</button></div>
   </div>
 </div>
-<!-- Assign detail -->
 <div class="overlay center" id="adetail-overlay" style="display:none" onclick="closeOverlay('adetail-overlay',event)">
   <div class="modal"><div class="modal-drag"></div><div id="adetail-content"></div></div>
 </div>
@@ -369,27 +372,31 @@ const PTIMES=['8:30\n〜10:00','10:20\n〜11:50','12:40\n〜14:10','14:30\n〜16
 const CCOLORS=['#7c6af7','#5eead4','#fbbf24','#f87171','#4ade80','#fb923c','#e879f9','#38bdf8'];
 const CBGS=['rgba(124,106,247,.22)','rgba(94,234,212,.18)','rgba(251,191,36,.18)','rgba(248,113,113,.18)','rgba(74,222,128,.18)','rgba(251,146,60,.18)','rgba(232,121,249,.18)','rgba(56,189,248,.18)'];
 const THEMES=[
-  {id:'midnight', label:'Dark',    bg:'#313338', accent:'#5865f2'},
-  {id:'ocean',    label:'Darker',  bg:'#1e1f22', accent:'#5865f2'},
-  {id:'forest',   label:'Light',   bg:'#f2f3f5', accent:'#5865f2'},
-  {id:'rose',     label:'Midnight',bg:'#0d0d0f', accent:'#5865f2'},
-  {id:'sand',     label:'Classic', bg:'#23272a', accent:'#7289da'},
-  {id:'slate',    label:'Canary',  bg:'#36393f', accent:'#7289da'},
+  {id:'midnight',  label:'Dark',      bg:'#313338', accent:'#5865f2'},
+  {id:'ocean',     label:'Darker',    bg:'#1e1f22', accent:'#5865f2'},
+  {id:'forest',    label:'Light',     bg:'#f2f3f5', accent:'#5865f2'},
+  {id:'rose',      label:'Midnight',  bg:'#0d0d0f', accent:'#5865f2'},
+  {id:'sand',      label:'Classic',   bg:'#23272a', accent:'#7289da'},
+  {id:'slate',     label:'Canary',    bg:'#36393f', accent:'#7289da'},
+  {id:'white',     label:'White',     bg:'#ffffff', accent:'#5865f2'},
+  {id:'cream',     label:'Cream',     bg:'#fdfaf5', accent:'#c07c3a'},
+  {id:'coolwhite', label:'Cool',      bg:'#f5f7fb', accent:'#2563eb'},
+  {id:'minimal',   label:'Minimal',   bg:'#fafafa', accent:'#222222'},
 ];
 
-let S={classes:[],assignments:[],schedChanges:[],quarters:[],periods:[],events:[],theme:'default'};
+let S={classes:[],assignments:[],schedChanges:[],quarters:[],periods:[],events:[],memos:[],theme:'midnight'};
 let editingClassId=null,editingAssignId=null,editingPeriodId=null,editingQuarterId=null,editingEventId=null,schedClassId=null;
+let memoDay=null,memoPeriod=null,memoWeek=null;
 let weekOffset=0,selectedColor=0;
 
-function load(){try{const d=localStorage.getItem('univ_v4');if(d){const p=JSON.parse(d);S={classes:[],assignments:[],schedChanges:[],quarters:[],periods:[],events:[],theme:'default',...p};}}catch(e){}}
-function save(){localStorage.setItem('univ_v4',JSON.stringify(S));}
+function load(){try{const d=localStorage.getItem('univ_v5');if(d){const p=JSON.parse(d);S={classes:[],assignments:[],schedChanges:[],quarters:[],periods:[],events:[],memos:[],theme:'midnight',...p};}}catch(e){}}
+function save(){localStorage.setItem('univ_v5',JSON.stringify(S));}
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,5);}
 function parseDate(s){return s?new Date(s+'T00:00:00'):null;}
 function dateStr(d){return d.toISOString().slice(0,10);}
 function fmtDate(s){if(!s)return'';const d=parseDate(s);return`${d.getMonth()+1}/${d.getDate()}`;}
 function getMon(off=0){const d=new Date();const dy=d.getDay();d.setDate(d.getDate()+(dy===0?-6:1-dy)+off*7);d.setHours(0,0,0,0);return d;}
 function weekKey(off){return dateStr(getMon(off));}
-function goToday(){weekOffset=0;renderCalendar();}
 
 // Theme
 function applyTheme(id){
@@ -400,13 +407,13 @@ function applyTheme(id){
 function renderThemeGrid(){
   const g=document.getElementById('theme-grid');
   g.innerHTML=THEMES.map(t=>`
-    <div style="text-align:center;cursor:pointer" onclick="applyTheme('${t.id}')">
-      <div class="theme-swatch${S.theme===t.id?' sel':''}" style="background:${t.bg};border:2px solid ${t.accent}"></div>
-      <div style="font-size:10px;color:var(--muted);margin-top:3px">${t.label}</div>
+    <div style="cursor:pointer" onclick="applyTheme('${t.id}')">
+      <div class="theme-swatch${S.theme===t.id?' sel':''}" style="background:${t.bg};border-color:${S.theme===t.id?'var(--text)':t.accent}"></div>
+      <div class="theme-label">${t.label}</div>
     </div>`).join('');
 }
 
-// Period / Quarter helpers — allow overlaps
+// Period/Quarter helpers
 function getPeriodsForDate(ds){return S.periods.filter(p=>p.start<=ds&&ds<=p.end);}
 function getQuartersForDate(ds){return S.quarters.filter(q=>q.start<=ds&&ds<=q.end);}
 function isHoliday(ds){return S.periods.some(p=>p.type==='holiday'&&p.start<=ds&&ds<=p.end);}
@@ -429,25 +436,26 @@ function renderCalendar(){
   const today=new Date();today.setHours(0,0,0,0);
   document.getElementById('week-label').textContent=mon.toLocaleDateString('ja-JP',{month:'long',day:'numeric'})+' 〜';
 
-  // Build date strings for Mon-Sat
   const dates=[];
   for(let d=0;d<6;d++){const dt=new Date(mon);dt.setDate(mon.getDate()+d);dates.push(dateStr(dt));}
 
-  // Banners: collect all unique periods & quarters overlapping this week
+  // Banners
   const bannerItems=new Map();
   dates.forEach(ds=>{
     getQuartersForDate(ds).forEach(q=>{if(!bannerItems.has('q'+q.id))bannerItems.set('q'+q.id,{label:q.name,cls:'chip-q'});});
     getPeriodsForDate(ds).forEach(p=>{if(!bannerItems.has('p'+p.id))bannerItems.set('p'+p.id,{label:p.name,cls:p.type==='holiday'?'chip-hol':'chip-sem'});});
   });
   const banDiv=document.getElementById('banners');
-  banDiv.innerHTML=[...bannerItems.values()].map(b=>`<span class="banner-chip ${b.cls}">${b.label}</span>`).join('');
-  banDiv.style.display=bannerItems.size?'flex':'none';
+  if(bannerItems.size){
+    banDiv.style.display='flex';
+    banDiv.innerHTML=[...bannerItems.values()].map(b=>`<span class="banner-chip ${b.cls}">${b.label}</span>`).join('');
+  } else {banDiv.style.display='none';}
 
+  const wk=weekKey(weekOffset);
   const grid=document.getElementById('cal-grid');
   grid.innerHTML='';
   grid.appendChild(document.createElement('div'));
 
-  // Day headers
   for(let d=0;d<6;d++){
     const dt=parseDate(dates[d]);
     const isToday=dt.getTime()===today.getTime();
@@ -458,7 +466,11 @@ function renderCalendar(){
     grid.appendChild(h);
   }
 
-  const wk=weekKey(weekOffset);
+  // Compute cell height to fill available space
+  const wrap=document.getElementById('cal-wrap');
+  const availH=wrap.clientHeight-40; // subtract header row
+  const cellH=Math.max(56,Math.floor((availH-6)/5)); // 5 rows, 6px gaps
+  grid.style.gridTemplateRows=`24px repeat(5,${cellH}px)`;
 
   for(let p=0;p<5;p++){
     const tl=document.createElement('div');tl.className='time-col';
@@ -473,26 +485,20 @@ function renderCalendar(){
       const activeQIds=getActiveQuarterIds(ds);
       const change=S.schedChanges.find(c=>c.week===wk&&c.origDay===d&&c.origPeriod===p);
       const movedHere=S.schedChanges.find(c=>c.week===wk&&c.type==='move'&&c.newDay===d&&c.newPeriod===p);
+      const memo=S.memos.find(m=>m.week===wk&&m.day===d&&m.period===p);
 
       let cls=null;
       if(change&&change.type==='cancel'){}
       else if(change&&change.type==='move'){}
       else{
-        // Match class: activeQIds match OR no quarter set
         cls=S.classes.find(c=>{
-          if(c.isSingle){
-            // single: show if ds matches and day/period matches
-            return c.singleDate===ds&&c.day===d&&c.period===p;
-          }
-          return c.day===d&&c.period===p&&(
-            (!c.quarterId)||activeQIds.includes(c.quarterId)
-          );
+          if(c.isSingle)return c.singleDate===ds&&c.day===d&&c.period===p;
+          return c.day===d&&c.period===p&&((!c.quarterId)||activeQIds.includes(c.quarterId));
         });
       }
       if(movedHere){
         cls=S.classes.find(c=>c.day===movedHere.origDay&&c.period===movedHere.origPeriod&&((!c.quarterId)||activeQIds.includes(c.quarterId)));
       }
-      // Also show single classes for this date/period regardless of quarter filter
       if(!cls){
         cls=S.classes.find(c=>c.isSingle&&c.singleDate===ds&&c.period===p);
       }
@@ -505,23 +511,62 @@ function renderCalendar(){
         const ci=cls.colorIdx%8;
         const block=document.createElement('div');
         block.className='class-block c'+ci;
-        block.innerHTML=`<div class="cb-name">${cls.name}</div><div class="cb-room">${isChanged?'<span style="color:var(--warning);font-size:8px">[変更]</span> ':''}${cls.room||''}</div>${hasUndone?'<div class="cb-badge"></div>':''}${cls.isSingle?'<div class="cb-single"></div>':''}`;
+        block.innerHTML=`<div class="cb-name">${cls.name}</div><div class="cb-spacer"></div><div class="cb-room">${isChanged?'[変更] ':''}${cls.room||''}</div>${hasUndone?'<div class="cb-badge"></div>':''}${cls.isSingle?'<div class="cb-single"></div>':''}`;
         cell.appendChild(block);
         if(evs.length){const ev=document.createElement('div');ev.className='ev-dot';ev.textContent='* '+evs.map(e=>e.name).join(' ');cell.appendChild(ev);}
         cell.onclick=()=>openDetail(cls.id);
       } else if(change&&change.type==='cancel'){
         const block=document.createElement('div');block.className='class-block';
         block.style.cssText='background:rgba(248,113,113,.1);border-left:3px solid var(--danger)';
-        block.innerHTML=`<div class="cb-name" style="color:var(--danger)">休講</div><div class="cb-room">${change.note||''}</div>`;
+        block.innerHTML=`<div class="cb-name" style="color:var(--danger)">休講</div><div class="cb-spacer"></div><div class="cb-room">${change.note||''}</div>`;
         cell.appendChild(block);
         cell.onclick=()=>{};
-      } else {
+      } else if(memo){
+        const block=document.createElement('div');block.className='memo-block';
+        block.innerHTML=`<div class="memo-text">${memo.text}</div>`;
+        cell.appendChild(block);
         if(evs.length){const ev=document.createElement('div');ev.className='ev-dot';ev.textContent='* '+evs.map(e=>e.name).join(' ');cell.appendChild(ev);}
-        cell.onclick=()=>openAddClassAt(d,p,ds);
+        cell.onclick=()=>openMemoForm(d,p,wk,memo);
+      } else {
+        const plus=document.createElement('div');plus.className='cell-plus';plus.textContent='+';
+        cell.appendChild(plus);
+        if(evs.length){const ev=document.createElement('div');ev.className='ev-dot';ev.textContent='* '+evs.map(e=>e.name).join(' ');cell.appendChild(ev);}
+        cell.onclick=()=>openCellMenu(d,p,ds,wk);
       }
       grid.appendChild(cell);
     }
   }
+}
+
+// Cell tap menu: choose between adding class or memo
+function openCellMenu(day,period,ds,wk){
+  // If long-press could distinguish, but for simplicity: shift+click = memo, normal = class
+  // Instead show a tiny choice via confirm
+  const choice=confirm(`${DAYS[day]}曜 ${PLABELS[period]}\n\n授業を追加 → OK\nメモを追加 → キャンセル`);
+  if(choice)openAddClassAt(day,period,ds);
+  else openMemoForm(day,period,wk,null);
+}
+
+// Memo
+function openMemoForm(day,period,wk,existing){
+  memoDay=day;memoPeriod=period;memoWeek=wk;
+  document.getElementById('memo-title').textContent=`${DAYS[day]}曜 ${PLABELS[period]} メモ`;
+  document.getElementById('memo-text').value=existing?existing.text:'';
+  document.getElementById('del-memo-wrap').style.display=existing?'block':'none';
+  if(existing){
+    document.getElementById('del-memo-btn').onclick=()=>{
+      S.memos=S.memos.filter(m=>!(m.week===wk&&m.day===day&&m.period===period));
+      save();closeOverlay('memo-overlay');renderCalendar();
+    };
+  }
+  document.getElementById('memo-overlay').style.display='flex';
+}
+function saveMemo(){
+  const text=document.getElementById('memo-text').value.trim();
+  if(!text){alert('メモを入力してください');return;}
+  S.memos=S.memos.filter(m=>!(m.week===memoWeek&&m.day===memoDay&&m.period===memoPeriod));
+  S.memos.push({week:memoWeek,day:memoDay,period:memoPeriod,text});
+  save();closeOverlay('memo-overlay');renderCalendar();
 }
 
 // Detail
@@ -562,18 +607,13 @@ function openDetail(id){
 }
 function removeSchedChange(id){S.schedChanges=S.schedChanges.filter(c=>c.id!==id);save();closeOverlay('detail-overlay');renderCalendar();}
 
-// Generic overlay close
 function closeOverlay(id,e){
   const ov=document.getElementById(id);
   if(!e||e.target===ov){ov.style.display='none';if(id==='detail-overlay')renderCalendar();}
 }
 
-// Class form helpers
-function toggleSingleFields(){
-  const s=+document.getElementById('f-single').value;
-  document.getElementById('single-date-wrap').style.display=s?'block':'none';
-  document.getElementById('regular-wrap').style.display=s?'none':'block';
-}
+// Class form
+function toggleSingleFields(){const s=+document.getElementById('f-single').value;document.getElementById('single-date-wrap').style.display=s?'block':'none';document.getElementById('regular-wrap').style.display=s?'none':'block';}
 function buildColorPicker(sel){
   const w=document.getElementById('color-picker');w.innerHTML='';
   CCOLORS.forEach((c,i)=>{const s=document.createElement('div');s.className='cswatch'+(i===sel?' sel':'');s.style.background=c;s.onclick=()=>{selectedColor=i;buildColorPicker(i);};w.appendChild(s);});
@@ -642,7 +682,7 @@ function deleteClass(){
   save();closeOverlay('class-overlay');renderCalendar();
 }
 
-// Sched change
+// Sched
 function openSchedChange(classId){
   schedClassId=classId;
   const cls=S.classes.find(c=>c.id===classId);
@@ -702,10 +742,7 @@ function openAssignDetail(id){
   if(cls)html+=`<div class="detail-sec"><div class="dl">時間割</div><div class="dv">${cls.name}</div></div>`;
   if(a.due)html+=`<div class="detail-sec"><div class="dl">期限</div><div class="dv"><span class="adue ${dc}">${ds}</span></div></div>`;
   if(a.note)html+=`<div class="detail-sec"><div class="dl">メモ</div><div class="dv" style="font-size:13px;color:var(--muted);white-space:pre-wrap">${a.note}</div></div>`;
-  html+=`<div class="btn-row">
-    <button class="btn btn-s" onclick="closeOverlay('adetail-overlay')">閉じる</button>
-    <button class="btn btn-p" onclick="closeOverlay('adetail-overlay');openEditAssign('${a.id}')">編集</button>
-  </div>`;
+  html+=`<div class="btn-row"><button class="btn btn-s" onclick="closeOverlay('adetail-overlay')">閉じる</button><button class="btn btn-p" onclick="closeOverlay('adetail-overlay');openEditAssign('${a.id}')">編集</button></div>`;
   document.getElementById('adetail-content').innerHTML=html;
   document.getElementById('adetail-overlay').style.display='flex';
 }
@@ -733,18 +770,13 @@ function renderAssignments(){
 
 // Settings
 function renderSettings(){
-  const pl=document.getElementById('period-list');
   const ps=[...S.periods].sort((a,b)=>a.start.localeCompare(b.start));
-  pl.innerHTML=ps.length?ps.map(p=>`<div class="s-item" onclick="openPeriodForm('${p.id}')"><div class="s-item-l"><div class="s-item-name">${p.name}</div><div class="s-item-sub">${fmtDate(p.start)} 〜 ${fmtDate(p.end)}</div></div><span class="s-badge ${p.type==='holiday'?'bh':'bs'}">${p.type==='holiday'?'休業':'学期'}</span></div>`).join(''):`<div style="padding:12px;text-align:center;color:var(--muted);font-size:12px">未設定</div>`;
-  const ql=document.getElementById('quarter-list');
+  document.getElementById('period-list').innerHTML=ps.length?ps.map(p=>`<div class="s-item" onclick="openPeriodForm('${p.id}')"><div class="s-item-l"><div class="s-item-name">${p.name}</div><div class="s-item-sub">${fmtDate(p.start)} 〜 ${fmtDate(p.end)}</div></div><span class="s-badge ${p.type==='holiday'?'bh':'bs'}">${p.type==='holiday'?'休業':'学期'}</span></div>`).join(''):`<div style="padding:12px;text-align:center;color:var(--muted);font-size:12px">未設定</div>`;
   const qs=[...S.quarters].sort((a,b)=>a.start.localeCompare(b.start));
-  ql.innerHTML=qs.length?qs.map(q=>`<div class="s-item" onclick="openQuarterForm('${q.id}')"><div class="s-item-l"><div class="s-item-name">${q.name}</div><div class="s-item-sub">${fmtDate(q.start)} 〜 ${fmtDate(q.end)}</div></div><span class="s-badge bq">Q</span></div>`).join(''):`<div style="padding:12px;text-align:center;color:var(--muted);font-size:12px">未設定</div>`;
-  const el=document.getElementById('event-list');
+  document.getElementById('quarter-list').innerHTML=qs.length?qs.map(q=>`<div class="s-item" onclick="openQuarterForm('${q.id}')"><div class="s-item-l"><div class="s-item-name">${q.name}</div><div class="s-item-sub">${fmtDate(q.start)} 〜 ${fmtDate(q.end)}</div></div><span class="s-badge bq">Q</span></div>`).join(''):`<div style="padding:12px;text-align:center;color:var(--muted);font-size:12px">未設定</div>`;
   const es=[...S.events].sort((a,b)=>a.start.localeCompare(b.start));
-  el.innerHTML=es.length?es.map(e=>`<div class="s-item" onclick="openEventForm('${e.id}')"><div class="s-item-l"><div class="s-item-name">${e.name}</div><div class="s-item-sub">${fmtDate(e.start)}${e.end&&e.end!==e.start?' 〜 '+fmtDate(e.end):''}${e.note?' · '+e.note:''}</div></div><span class="s-badge be">行事</span></div>`).join(''):`<div style="padding:12px;text-align:center;color:var(--muted);font-size:12px">未設定</div>`;
+  document.getElementById('event-list').innerHTML=es.length?es.map(e=>`<div class="s-item" onclick="openEventForm('${e.id}')"><div class="s-item-l"><div class="s-item-name">${e.name}</div><div class="s-item-sub">${fmtDate(e.start)}${e.end&&e.end!==e.start?' 〜 '+fmtDate(e.end):''}${e.note?' · '+e.note:''}</div></div><span class="s-badge be">行事</span></div>`).join(''):`<div style="padding:12px;text-align:center;color:var(--muted);font-size:12px">未設定</div>`;
 }
-
-// Period form
 function openPeriodForm(id){
   editingPeriodId=id||null;const p=id?S.periods.find(x=>x.id===id):null;
   document.getElementById('pf-title').textContent=p?'学期・休業期間を編集':'学期・休業期間を追加';
@@ -761,8 +793,6 @@ function savePeriod(){
   if(editingPeriodId){Object.assign(S.periods.find(x=>x.id===editingPeriodId),data);}else{S.periods.push({id:uid(),...data});}
   save();closeOverlay('period-overlay');renderSettings();renderCalendar();
 }
-
-// Quarter form
 function openQuarterForm(id){
   editingQuarterId=id||null;const q=id?S.quarters.find(x=>x.id===id):null;
   document.getElementById('qf-title').textContent=q?'クォーターを編集':'クォーターを追加';
@@ -777,8 +807,6 @@ function saveQuarter(){
   if(editingQuarterId){Object.assign(S.quarters.find(x=>x.id===editingQuarterId),{name,start,end});}else{S.quarters.push({id:uid(),name,start,end});}
   save();closeOverlay('quarter-overlay');renderSettings();renderCalendar();
 }
-
-// Event form
 function openEventForm(id){
   editingEventId=id||null;const ev=id?S.events.find(x=>x.id===id):null;
   document.getElementById('ef-title').textContent=ev?'行事を編集':'行事を追加';
@@ -795,6 +823,9 @@ function saveEvent(){
   if(editingEventId){Object.assign(S.events.find(x=>x.id===editingEventId),data);}else{S.events.push({id:uid(),...data});}
   save();closeOverlay('event-overlay');renderSettings();renderCalendar();
 }
+
+// Resize handler for cell height
+window.addEventListener('resize',()=>{if(document.getElementById('view-cal').style.display!=='none')renderCalendar();});
 
 load();
 applyTheme(S.theme||'midnight');
